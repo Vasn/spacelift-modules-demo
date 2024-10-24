@@ -13,4 +13,4 @@ tests:
     terraform_version: 1.5.7
     environment:
       TF_VAR_vpc_cidr_block: "10.0.0.0/24"
-      TF_LOG: "DEBUG"
+      TF_VAR_aws_region: "ap-southeast-1"
