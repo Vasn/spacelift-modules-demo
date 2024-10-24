@@ -2,23 +2,13 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.67.0"
+      version = "5.64.0"
     }
   }
 }
 
 provider "aws" {
   region  = "ap-southeast-1"
-  # profile = var.aws_profile_name
-
-  # default_tags {
-  #   tags = {
-  #     app_name = "${var.project_name}-app"
-  #     cloud    = "aws"
-  #     version  = "1.0.0"
-  #     owner    = var.project_owner
-  #   }
-  # }
 }
 
 resource "aws_vpc" "main" {
