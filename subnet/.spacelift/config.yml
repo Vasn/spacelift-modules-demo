@@ -1,0 +1,46 @@
+# The version of the configuration file format
+version: 1
+# Your module version - must be changed to release a new version
+module_version: 0.1.0
+
+# Any default settings that should be used for all test cases
+test_defaults:
+  before_init: ["terraform fmt -check"]
+
+# The set of tests to run to verify your module works correctly
+tests:
+  - name: Test the module with 1.5.7
+    terraform_version: 1.5.7
+    environment:
+      TF_VAR_aws_region: "ap-southeast-1"
+      TF_VAR_vpc_id: ${{ dependencies.vpc.vpc_id }}
+      TF_VAR_subnets: '{
+        "public-subnet-1a" = {
+          cidr_block              = "10.0.0.0/28"
+          availability_zone       = "ap-southeast-1a"
+          map_public_ip_on_launch = true
+          name                    = "public-subnet-a"
+          tier                    = "public"
+        },
+        "public-subnet-1b" = {
+          cidr_block              = "10.0.0.16/28"
+          availability_zone       = "ap-southeast-1b"
+          map_public_ip_on_launch = true
+          name                    = "public-subnet-b"
+          tier                    = "public"
+        },
+        "app-subnet-1a" = {
+          cidr_block              = "10.0.0.48/28"
+          availability_zone       = "ap-southeast-1a"
+          map_public_ip_on_launch = false
+          name                    = "app-subnet-a"
+          tier                    = "private"
+        },
+        "app-subnet-1b" = {
+          cidr_block              = "10.0.0.64/28"
+          availability_zone       = "ap-southeast-1b"
+          map_public_ip_on_launch = false
+          name                    = "app-subnet-b"
+          tier                    = "private"
+        }
+      }"
