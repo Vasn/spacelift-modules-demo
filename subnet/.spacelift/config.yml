@@ -13,7 +13,7 @@ tests:
     terraform_version: 1.5.7
     environment:
       TF_VAR_aws_region: "ap-southeast-1"
-      TF_VAR_vpc_id: ${{ dependencies.vpc.vpc_id }}
+      TF_VAR_vpc_id: ${{ outputs.vpc.vpc_id }}
       TF_VAR_subnets: '{
         "public-subnet-1a": {
           "cidr_block": "10.0.0.0/28",
