@@ -16,6 +16,7 @@ tests:
     project_root: tests/stack-with-vpc
     environment:
       TF_VAR_aws_region: "ap-southeast-1"
+      TF_VAR_vpc_cidr: "10.1.0.0/24"
       TF_VAR_subnets: '{
         "public-subnet-1a": {
           "cidr_block": "10.1.0.0/28",

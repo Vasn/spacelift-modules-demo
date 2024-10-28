@@ -8,11 +8,11 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-southeast-1"
+  region = var.aws_region
 }
 
 resource "aws_vpc" "main" {
-  cidr_block = var.aws_region
+  cidr_block = var.vpc_cidr
 }
 
 module "subnet" {
@@ -25,6 +25,11 @@ module "subnet" {
 variable "aws_region" {
   type        = string
   description = "AWS region used for test"
+}
+
+variable "vpc_cidr" {
+  type = string
+  description = "VPC CIDR block"
 }
 
 variable "subnets" {
