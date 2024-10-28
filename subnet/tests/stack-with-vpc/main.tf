@@ -28,7 +28,7 @@ variable "aws_region" {
 }
 
 variable "vpc_cidr" {
-  type = string
+  type        = string
   description = "VPC CIDR block"
 }
 
