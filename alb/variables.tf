@@ -10,14 +10,6 @@ variable "alb_subnets" {
   type = list(string)
 }
 
-# variable "vpc_id" {
-#   type = string
-# }
-
-# variable "web_instance_port" {
-#   type = number # port 3000 
-# }
-
-# variable "app_instance_port" {
-#   type = number # port 8001
-# }
+variable "vpc_id" {
+  type = string
+}
