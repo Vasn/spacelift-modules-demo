@@ -30,6 +30,10 @@ resource "aws_subnet" "main" {
   }
 }
 
+resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id
+}
+
 resource "aws_security_group" "alb_sg" {
   name        = "${var.project_name}-alb-sg"
   description = "Allow access to HTTP/HTTPS traffic to ALB"
