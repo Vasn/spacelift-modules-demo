@@ -18,10 +18,10 @@ resource "aws_vpc" "main" {
 module "security_group" {
   source = "../../"
 
-  project_name                          = var.project_name
-  vpc_id =  aws_vpc.main.id
-  web_port = var.web_port
-  app_port = var.app_port
+  project_name = var.project_name
+  vpc_id       = aws_vpc.main.id
+  web_port     = var.web_port
+  app_port     = var.app_port
 }
 
 variable "aws_region" {
