@@ -33,7 +33,7 @@ resource "aws_subnet" "main" {
 module "gateway" {
   source = "../../"
 
-  vpc_id = aws_vpc.main.id
+  vpc_id                          = aws_vpc.main.id
   nat_gateway_public_subnet_1a_id = aws_subnet.main["public-subnet-1a"].id
   nat_gateway_public_subnet_1b_id = aws_subnet.main["public-subnet-1b"].id
 }
