@@ -56,8 +56,8 @@ module "rds" {
     aws_security_group.rds.id
   ]
   db_subnets = [
-    aws_subnets.main["data-subnet-1a"].id,
-    aws_subnets.main["data-subnet-1b"].id
+    aws_subnet.main["data-subnet-1a"].id,
+    aws_subnet.main["data-subnet-1b"].id
   ]
 }
 
