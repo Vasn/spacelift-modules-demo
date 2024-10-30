@@ -1,3 +1,2 @@
-# Subnet with VPC
-
-This is a simple test of a subnet with a VPC
+# Public/Private/Data Route table
+This is a simple test of public/private/data route tables with its dependencies provisioned.
