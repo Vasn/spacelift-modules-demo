@@ -2,4 +2,6 @@ variable "ecrs" {
   type = map(string)
 }
 
-variable "project_name" {}
+variable "project_name" {
+  type = string
+}
