@@ -1,6 +1,6 @@
 aws_region   = "ap-southeast-1"
 project_name = "spacelift-ecr-test"
 ecrs = {
-  "web" = "web",
-  "app" = "app"
+  "test123" = "test123",
+  "test321" = "test321"
 }
