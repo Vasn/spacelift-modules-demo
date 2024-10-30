@@ -74,7 +74,7 @@ module "route_table" {
       subnet_id       = subnet.id
       route_table_key = (substr(key, length(key) - 1, 1)) == "a" ? "nat_a" : "nat_b"
     }
-    if subnet.tags["Tier"] == "public"
+    if subnet.tags["Tier"] == "private"
   }
   data_subnets = {
     for key, subnet in aws_subnet.main :
