@@ -27,9 +27,9 @@ output "data_subnet_ids" {
     key => {
       subnet_id = subnet.id
     }
-    if subnet.tags["Tier"] == "private_database"
+    if subnet.tags["Tier"] == "private-database"
   }
-  description = "Map of data public subnet keys to their subnet IDs."
+  description = "Map of data subnet keys to their subnet IDs."
 }
 
 output "subnet_cidr_blocks" {
