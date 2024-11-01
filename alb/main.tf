@@ -35,8 +35,8 @@ resource "aws_lb_target_group" "web" {
     matcher             = 200
     healthy_threshold   = 10
     unhealthy_threshold = 10
-    interval            = 300 # in seconds
-    timeout             = 120 # in seconds
+    interval            = 30 # in seconds
+    timeout             = 10 # in seconds
   }
 }
 
@@ -54,8 +54,8 @@ resource "aws_lb_target_group" "app" {
     matcher             = 200
     healthy_threshold   = 10
     unhealthy_threshold = 10
-    interval            = 300 # in seconds
-    timeout             = 120 # in seconds
+    interval            = 30 # in seconds
+    timeout             = 10 # in seconds
   }
 }
 
@@ -84,8 +84,8 @@ resource "aws_lb_listener_rule" "frontend_rule" {
   }
 
   condition {
-    host_header {
-      values = ["frontend.${aws_lb.main.dns_name}"]
+    path_pattern {
+      values = ["/frontend/*"]
     }
   }
 }
@@ -100,8 +100,8 @@ resource "aws_lb_listener_rule" "backend_rule" {
   }
 
   condition {
-    host_header {
-      values = ["backend.${aws_lb.main.dns_name}"]
+    path_pattern {
+      values = ["/backend/*"]
     }
   }
 }
