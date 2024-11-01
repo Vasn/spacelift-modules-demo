@@ -71,8 +71,8 @@ resource "aws_lb_listener_rule" "frontend_rule" {
   }
 
   condition {
-    path_pattern {
-      values = ["/frontend/*"]
+    host_header {
+      values = ["frontend.${aws_lb.main.dns_name}"]
     }
   }
 }
@@ -87,8 +87,8 @@ resource "aws_lb_listener_rule" "backend_rule" {
   }
 
   condition {
-    path_pattern {
-      values = ["/backend/*"]
+    host_header {
+      values = ["backend.${aws_lb.main.dns_name}"]
     }
   }
 }
